@@ -10,11 +10,10 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  tournament:
+  check:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
-      pull-requests: write
+      contents: read
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -24,26 +23,15 @@ jobs:
         with:
           python-version: 3.13
 
-      - name: Cache dependencies
-        uses: actions/cache@v3
-        with:
-          path: ~/.cache/pypoetry
-          key: ${{ runner.os }}-poetry-${{ hashFiles('**/poetry.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-poetry-
-
-      - name: Run tournament simulation
-        run: python3 tournament.py
-        env:
-          PYTHONPATH: ${{ github.workspace }}:$PYTHONPATH
-
-      - name: Update leaderboard file
+      - name: Install Poetry
         run: |
-          echo "| Rank | Team | Score |" > leadboard.md
-          echo "| --- | --- | --- |" >> leadboard.md
-          cat results/lead_board.txt >> leadboard.md
+          curl -sSL https://install.python-poetry.org | python3 -
 
-      - name: Post leaderboard as PR comment
-        uses: marocchino/sticky-pull-request-comment@v2
-        with:
-          path: leadboard.md
+      - name: Add Poetry to PATH
+        run: echo "${{ runner.tool_cache }}/.poetry/bin" >> $GITHUB_PATH
+
+      - name: Install dependencies
+        run: poetry install
+
+      - name: Run tests
+        run: poetry run python tournament.py
