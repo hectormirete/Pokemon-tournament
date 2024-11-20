@@ -3,18 +3,21 @@
 ## Leaderboard
 | Rank | Team | Score |
 | --- | --- | --- |
-|1|kasperle|53|
-|2|DayOfDefeat|42|
-|3|scenic_castle_view|41|
-|4|cloud_migration|35|
-|5|ash-ketchum|33|
-|6|not-so-smart|31|
-|7|RegressionRangers|29|
-|8|martini|27|
-|9|KoF|17|
-|10|minmax|17|
-|11|team_mat|5|
-|12|ev3n-w0rse-than-mats|0|
+|1|helloworld12|69|
+|2|helloworld14|59|
+|3|kasperle|58|
+|4|helloworld2|53|
+|5|cloud_migration|43|
+|6|DayOfDefeat|42|
+|7|scenic_castle_view|40|
+|8|ash-ketchum|39|
+|9|martini|32|
+|10|RegressionRangers|29|
+|11|not-so-smart|28|
+|12|KoF|15|
+|13|minmax|13|
+|14|team_mat|5|
+|15|ev3n-w0rse-than-mats|0|
 
 ## How to contribute
 * Clone the repository
