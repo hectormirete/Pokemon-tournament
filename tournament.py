@@ -97,7 +97,7 @@ if __name__ == "__main__":
     if not os.path.exists(results_path):
         os.makedirs(results_path)
     for battle in battles:
-        battle.best_of_n(n=5)
+        battle.best_of_n(n=100)
         logger.info(f"Results: {battle.victories}")
         battle.save_results("./results")
     logger.info(f"Lead board: {compute_lead_board()}")
