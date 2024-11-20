@@ -2,7 +2,6 @@ from typing import List, Optional
 from models.movement import Movement, MovementKind
 from models.pokemon_type import PokemonType
 import copy
-import random
 
 
 class Pokemon:
@@ -112,7 +111,7 @@ class Pokemon:
 
 
 def select_move(attacker_moves: List[Movement], attacker:Pokemon, defender: Pokemon):
-    return random.choice(attacker_moves)
+    return attacker_moves[0]
 
 
 class Team:
